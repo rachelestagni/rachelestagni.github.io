@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <meta charset="UTF-8">
+  <title>Es1_esame</title>
+  <style>
+  @import url("https://fonts.googleapis.com/css?family=BioRhyme:200");
+  @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+
+  .h1 {
+  font-size: 50px;
+  font-family: "BioRhyme";
+  color: blue;
+  font-weight: 200;
+  text-align: center;
+}
+
+.h2 {
+  color: blue;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inconsolata';
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.container1 {
+height: 80vh;
+width: 80vw;
+position: absolute;
+top: 15%; left:10vw;
+right: 5%;
+border: 3px solid blue;
+padding: 10px;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .q {
+    background-color: blue;
+    height: 33vh;
+    width: 33vh;
+  }
+
+  .qino-off {
+    height: 0vh;
+    width: 0vh;
+  }
+
+  .qino-on {
+    background-color: #87CEFA;
+    height: 16vh;
+    width: 16vh;
+  }
+
+  .rotate {
+    animation: rotation 0.5s forwards;
+  }
+
+  .rotate-orario {
+    animation: orario 1s infinite;
+  }
+
+  .rotate-antiorario {
+    animation: antiorario 1s infinite;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: translate(-50%, -50%)
+  rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-225deg);
+    }
+  }
+
+  @keyframes orario {
+    from {
+      transform: translate(-50%, -50%)
+  rotate(0deg);
+  }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes antiorario {
+    from {
+      transform: translate(-50%, -50%)
+  rotate(0deg);
+  }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+
+
+</style>
+
+</head>
+
+<body>
+<div class="h1"> Exercise 1 </div>
+  <div class="container1">
+  <div class="h2"> Rotating squares </div>
+  <div id="quadrato" class="q center"></div>
+<div id="quadratino" class="qino-off center"></div>
+  <script >
+
+  function ruota_quadrato_blu() {
+    $("#quadrato").addClass("rotate");
+  }
+
+  function disegna_quadrato_azzurro() {
+    $("#quadratino").addClass("qino-on");
+  }
+
+  function ruota_tutto() {
+    alert("ruota tutto!")
+    $("#quadrato").addClass("rotate-orario");
+    $("#quadratino").addClass("rotate-antiorario");
+  }
+
+  function al_click() {
+    if($("#quadratino").hasClass("qino-on"))
+      ruota_tutto();
+    else if($("#quadrato").hasClass("rotate"))
+      disegna_quadrato_azzurro();
+    else
+      ruota_quadrato_blu();
+  }
+
+  $("#quadrato").click(al_click);
+
+
+</script>
+
+</body>
+
+</html>

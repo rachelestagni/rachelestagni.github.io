@@ -1,0 +1,98 @@
+<html>
+<head>
+  <title> Spinners </title>
+<style>
+@import url("https://fonts.googleapis.com/css?family=BioRhyme:200");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+
+
+.h2 {
+  color: blue;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inconsolata';
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.container1 {
+height: 50vh;
+width: 40vw;
+position: absolute;
+top: 15%; left:5%;
+border: 3px solid blue;
+padding: 10px;
+}
+
+.container2 {
+  height: 50vh;
+  width: 40vw;
+position: absolute;
+top: 15%; left:50%;
+border: 3px solid blue;
+padding: 10px;
+}
+
+.container3 {
+  height: 50vh;
+  width: 40vw;
+position: absolute;
+top: 72.5%; left:5%;
+border: 3px solid blue;
+padding: 10px;
+margin-bottom: 20px;
+}
+.container4 {
+  height: 50vh;
+  width: 40vw;
+position: absolute;
+top: 72.5%; left:50%;
+border: 3px solid blue;
+padding: 10px;
+margin-bottom: 20px;
+}
+
+
+
+@keyframes spin{
+  from {width: 0px; height: 0px; opacity:1;}
+  to {width: 50px; height: 50px; opacity: 0;}
+}
+
+#spinner1{
+  transform: translate(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation: spin 1s infinite;
+  border-radius: 50%;
+  background-color: blue;
+
+}
+#spinner1:hover {
+  width:150px;
+  background-color: blue;
+  transition: all 10s;
+}
+
+.h1 {
+  font-size: 50px;
+  font-family: "BioRhyme";
+  color: blue;
+  font-weight: 200;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+  <div class="h1"> Spinners </div>
+<div class="container1">
+<div class="h2"> Bounce-in // bounce-out
+<div id="spinner1"> </div> </div> </div>
+ <iframe class="container2" src= "spinner 2.html"> </iframe>  <div class="h2 container2"> Alternate bounce </div>
+<iframe class="container3" src= "spinner 3.html"> </iframe> <div class="h2 container3" > Moving Squares </div>
+<iframe class="container4" src= "spinner 4.html"> </iframe> <div class="h2 container4" > Change of Perspective </div>
+
+</body>
+</html>

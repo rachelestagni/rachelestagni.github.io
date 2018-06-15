@@ -1,0 +1,106 @@
+<html>
+<head> <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<style>
+#stella{
+position:absolute;
+left:50%; top:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+width:60px; height:60px;
+background-color:yellow;
+}
+
+#pianetablu{
+position:absolute;
+left:53%; top:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+width:30px; height:30px;
+background-color:blue;
+transform-origin: 0px 0px;
+}
+
+#pianetarosso{
+position:absolute;
+left:55%; top:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+width:30px; height:30px;
+background-color:red;
+transform-origin: 0px 0px;
+display:none;
+}
+
+@keyframes ruotablu{
+  from{transform:rotate(0deg) translate(50px, 50px)}
+  to{transform:rotate(360deg) translate(50px, 50px)}
+}
+
+.rotazioneblu{
+  animation:ruotablu 1s linear infinite;
+}
+
+@keyframes invertiblu{
+  from{transform:rotate(0deg) translate(50px, 50px)}
+  to{transform:rotate(-360deg) translate(50px, 50px)}
+}
+
+.inversioneblu{
+  animation:invertiblu 1s linear infinite;
+}
+
+@keyframes ruotarosso{
+  from{transform:rotate(0deg) translate(100px, 100px)}
+  to{transform:rotate(-360deg) translate(100px, 100px)}
+}
+
+.rotazionerosso{
+  animation:ruotarosso 2s linear infinite;
+}
+
+@keyframes invertirosso{
+  from{transform:rotate(0deg) translate(100px, 100px)}
+  to{transform:rotate(360deg) translate(100px, 100px)}
+}
+
+.inversionerosso{
+  animation:invertirosso 2s linear infinite;
+}
+</style>
+</head>
+
+<body>
+  <div id="stella"></div>
+  <div id="pianetablu"></div>
+  <div id="pianetarosso"></div>
+  <script>
+  var pianeti = 0;
+
+  function cliccostella() {
+    if (pianeti == 0) {ruotareblu(); pianeti = 1;}
+    else if (pianeti == 1) {ruotarerosso(); pianeti = 2;}
+    else if (pianeti == 2) {inverti(); pianeti = 3;}
+  }
+
+  $("#stella").click(cliccostella)
+
+  function ruotareblu() {
+  $("#pianetablu").addClass("rotazioneblu")
+  $("#pianetablu").css({"left":"50%"})
+  }
+
+  function ruotarerosso() {
+  $("#pianetarosso").addClass("rotazionerosso")
+  $("#pianetarosso").css({"left":"50%"})
+  $("#pianetarosso").fadeIn()
+  }
+
+  function inverti() {
+  $("#pianetablu").removeClass("rotazioneblu")
+  $("#pianetablu").addClass("inversioneblu")
+  $("#pianetarosso").removeClass("rotazionerosso")
+  $("#pianetarosso").addClass("inversionerosso")
+  }
+  </script>
+</body>
+</html>
